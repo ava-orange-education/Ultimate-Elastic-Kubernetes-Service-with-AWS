@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ml-training-pod
+spec:
+  containers:
+    - name: training
+      image: ml-training-image
+      volumeMounts:
+        - name: fsx-mount
+          mountPath: /data
+  volumes:
+    - name: fsx-mount
+      persistentVolumeClaim:
+        claimName: fsx-claim

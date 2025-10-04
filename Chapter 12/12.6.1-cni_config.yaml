@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: amazon-vpc-cni
+  namespace: kube-system
+data:
+  WARM_IP_TARGET: "5"
+  MINIMUM_IP_TARGET: "2"
+  ENABLE_PREFIX_DELEGATION: "true"
+  ENABLE_POD_ENI: "true"
+  MTU: "9001"

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: amazon-vpc-cni
+  namespace: kube-system
+data:
+  ENABLE_IPV6: "true"
+  WARM_IPV6_TARGET: "1"
+  IPV6_PREFIX_DELEGATION: "true"

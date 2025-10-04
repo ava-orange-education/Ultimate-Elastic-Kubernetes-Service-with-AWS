@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgresql
+spec:
+  serviceName: postgresql
+  replicas: 3
+  updateStrategy:
+    type: RollingUpdate
+  template:
+    spec:
+      containers:
+      - name: postgresql
+        image: postgres:latest
+        volumeMounts:
+        - name: data
+          mountPath: /var/lib/postgresql/data

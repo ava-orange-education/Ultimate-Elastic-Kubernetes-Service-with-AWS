@@ -1,0 +1,10 @@
+aws cloudwatch put-metric-alarm \
+  --alarm-name HighCPUUsage \
+  --metric-name CPUUtilization \
+  --namespace AWS/EKS \
+  --statistic Average \
+  --period 300 \
+  --threshold 80 \
+  --comparison-operator GreaterThanThreshold \
+  --evaluation-periods 2 \
+  --alarm-actions <SNS_TOPIC_ARN>

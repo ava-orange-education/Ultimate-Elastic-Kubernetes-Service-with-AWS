@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build -t my-app:${{ github.sha }} .
+
+      - name: Push to Amazon ECR
+        run: |
+          aws ecr get-login-password | docker login --username AWS --password-stdin <account>.dkr.ecr.region.amazonaws.com
+          docker tag my-app:${{ github.sha }} <account>.dkr.ecr.region.amazonaws.com/my-app:${{ github.sha }}
+          docker push <account>.dkr.ecr.region.amazonaws.com/my-app:${{ github.sha }}
+
+      - name: Update manifest with new image
+        run: |
+          sed -i "s|image: .*|image: <ecr-repo-url>/my-app:${{ github.sha }}|" k8s/deployment.yaml
+          git commit -am "Update image to ${{ github.sha }}"
+          git push

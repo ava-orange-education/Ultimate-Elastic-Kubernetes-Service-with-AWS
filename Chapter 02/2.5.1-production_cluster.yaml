@@ -1,0 +1,44 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: production-eks
+  region: us-west-2
+  version: "1.28"
+  tags:
+    environment: production
+    department: platform
+
+vpc:
+  id: vpc-0123456789abcdef0
+  subnets:
+    private:
+      us-west-2a:
+        id: subnet-0123456789abcdef0
+        cidr: "*********/20"
+      us-west-2b:
+        id: subnet-0123456789abcdef1
+        cidr: "*********/20"
+    public:
+      us-west-2a:
+        id: subnet-0123456789abcdef2
+        cidr: "********/24"
+      us-west-2b:
+        id: subnet-0123456789abcdef3
+        cidr: "********/24"
+
+nodeGroups:
+  - name: managed-ng-1
+    instanceType: m5.large
+    desiredCapacity: 3
+    minSize: 2
+    maxSize: 6
+    privateNetworking: true
+    labels:
+      role: application
+    tags:
+      k8s.io/cluster-autoscaler/enabled: "true"
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        albIngress: true
+        cloudWatch: true

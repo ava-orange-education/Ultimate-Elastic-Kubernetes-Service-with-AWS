@@ -1,0 +1,11 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: fsx-sc
+provisioner: fsx.csi.aws.com
+parameters:
+  subnetId: subnet-xxx
+  securityGroupIds: sg-xxx
+  deploymentType: SCRATCH_2
+  automaticBackupRetentionDays: "1"
+  storageCapacity: "1200"

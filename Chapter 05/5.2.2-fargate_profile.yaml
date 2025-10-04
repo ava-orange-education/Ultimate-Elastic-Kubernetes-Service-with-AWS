@@ -1,0 +1,15 @@
+apiVersion: eks.amazonaws.com/v1
+kind: FargateProfile
+metadata:
+  name: application-profile
+spec:
+  podExecutionRoleArn: arn:aws:iam::111122223333:role/pod-execution-role
+  selectors:
+    - namespace: default
+      labels:
+        runtime: fargate
+  subnets:
+    - subnet-private1
+    - subnet-private2
+  securityGroupIds:
+    - sg-prod-pods

@@ -1,0 +1,19 @@
+# Exclude version control files
+.git
+.gitignore
+
+# Exclude node modules (for Node.js projects)
+node_modules
+
+# Exclude development and test files
+*.test.js
+*.spec.js
+__tests__
+
+# Exclude documentation
+README.md
+docs
+
+# Exclude logs and temporary files
+*.log
+.tmp

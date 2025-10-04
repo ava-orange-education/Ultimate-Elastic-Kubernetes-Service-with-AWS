@@ -1,0 +1,4 @@
+eksctl utils update-cluster-logging \
+  --cluster my-cluster \
+  --enable-types audit \
+  --region us-east-1

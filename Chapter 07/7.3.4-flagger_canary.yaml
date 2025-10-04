@@ -1,0 +1,19 @@
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: web
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: web
+  service:
+    port: 80
+  analysis:
+    interval: 1m
+    threshold: 5
+    metrics:
+      - name: error-rate
+        thresholdRange:
+          max: 1
+        interval: 30s

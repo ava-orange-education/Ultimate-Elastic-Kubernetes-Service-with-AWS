@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-application
+spec:
+  template:
+    spec:
+      serviceAccountName: my-service-account
+      containers:
+      - name: my-app
+        image: my-image:tag

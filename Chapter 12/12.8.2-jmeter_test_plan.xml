@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0">
+  <hashTree>
+    <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup">
+      <elementProp name="ThreadGroup.main_controller">
+        <stringProp name="LoopController.loops">100</stringProp>
+        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">300</stringProp>
+      </elementProp>
+      <HTTPSamplerProxy>
+        <stringProp name="HTTPSampler.domain">your-eks-service</stringProp>
+        <stringProp name="HTTPSampler.port">80</stringProp>
+        <stringProp name="HTTPSampler.protocol">http</stringProp>
+      </HTTPSamplerProxy>
+    </ThreadGroup>
+  </hashTree>
+</jmeterTestPlan>
