@@ -1,2 +1,2 @@
-# Ultimate-Elastic-Kubernetes-Service-with-AWS
-Ultimate Elastic Kubernetes Service with AWS, published by Orange, AVA®
+# Ultimate Natural Language Processing with spaCy and Hugging Face
+Ultimate Natural Language Processing with spaCy and Hugging Face, published by Orange, AVA®
