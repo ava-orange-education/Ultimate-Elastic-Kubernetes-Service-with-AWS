@@ -31,4 +31,4 @@ Start your journey today to become an EKS expert, and unlock the full potential 
 3. [Practical IoT Edge Computing with Python](https://orangeava.com/products/practical-iot-edge-computing-with-python)
 
 ## Visit Website 
-[www.orangeava.com](https://orangeava.com
+[www.orangeava.com](https://orangeava.com)
